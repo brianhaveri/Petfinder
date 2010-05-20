@@ -12,11 +12,13 @@ Petfinder is an online, searchable database of animals who need homes. This PHP 
 * Get a developer API key from http://www.petfinder.com/developers/api-key
 * Save this PHP code and run it:
 <?php
-// Get a random pet. Set $apiKey to your API key string.
+// Get a random pet's basic information
+// Set $apiKey to your API key string.
 // Both XML and JSON responses are available
-$pf = new Petfinder($apiKey);
+include('Petfinder.php');
+$pf = new Petfinder(PETFINDER_API_KEY);
 $pf->setResponseFormat('json');
-$petJson = $pf->pet_getRandom();
+$petJson = $pf->pet_getRandom(array('output'=>'basic'));
 $pet = json_decode($petJson, TRUE);
 print_r($pet);
 ?>
