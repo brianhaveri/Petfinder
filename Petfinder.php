@@ -237,15 +237,7 @@ class Petfinder {
 		// Get a token if necessary
 		if(in_array($method, $this->_methodsRequiringToken)) {
 			if(! $this->getToken()) {
-				$tokenResponse = $this->auth_getToken();
-				$matches = FALSE;
-				switch($this->_responseFormat) {
-					case 'json':preg_match('/"token"\:{"\$t"\:"(.*?)"}/', $tokenResponse, $matches); break;
-					case 'xml':	preg_match('/<token>(.*?)<\/token>/', $tokenResponse, $matches); break;
-				}
-				if(is_array($matches) && count($matches) > 1) {
-					$this->setToken($matches[1]);
-				}
+				return FALSE;
 			}
 			$data['token'] = $this->getToken();
 		}
