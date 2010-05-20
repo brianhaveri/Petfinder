@@ -13,7 +13,9 @@ Petfinder is an online, searchable database of animals who need homes. This PHP 
 * Save this PHP code and run it:
 <?php
 // Get a random pet. Set $apiKey to your API key string.
+// Both XML and JSON responses are available
 $pf = new Petfinder($apiKey);
+$pf->setResponseFormat('json');
 $petJson = $pf->pet_getRandom();
 $pet = json_decode($petJson, TRUE);
 print_r($pet);
