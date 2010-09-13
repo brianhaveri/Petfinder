@@ -16,8 +16,8 @@ Getting Started
 * Get a developer API key from http://www.petfinder.com/developers/api-key
 * Save this PHP code and run it:
 
-	<?php
-	// Get a random pet's basic information
+__Get a random pet's basic info__
+
 	// Set $apiKey to your API key string.
 	// Both XML and JSON responses are available
 	include('Petfinder.php');
@@ -26,4 +26,3 @@ Getting Started
 	$petJson = $pf->pet_getRandom(array('output'=>'basic'));
 	$pet = json_decode($petJson, TRUE);
 	print_r($pet);
-	?>
